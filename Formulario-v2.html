@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário v2</title>
+    <link rel="stylesheet" type="text/css" href="Formulario.css" media="screen">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./scripts.js"></script>
+    <!--Script para o API do Cep-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        var caixaSelecao = document.querySelectorAll('select');
+        M.FormSelect.init(caixaSelecao);
+       } );
+    </script>
+</head>
+<body>
+<div class="conteudo">
+<div class="imagem">
+    <center>
+        <img src="MARCA-01.png" alt="Logo" width="250px">
+    </center>
+</div>
+</div>
+<div class="container">
+<form class="col s12">
+<div class="row">
+<div class="input-field col s12">
+    <center>
+    <h1 id="titulo1">Cadastro Médico Health & Care</h1>
+    <h5 id="subtitulo">Caríssimo parceiro, seja bem vindo ao time de profissionais da Healt&Care! Preencha abaixo o formulário de cadastro médico e deixe que cuidemos do restante, para que assim, você se concentre unicamente na bela missão de cuidar e salvar vidas.🩺</h5>
+    </center>
+</div>
+</div>
+</form>
+<br>
+<fieldset class="grupo">
+<legend id="titulo"><b>Dados Pessoais</b></legend>
+<form class="col s12">
+<div class="row">
+<div class="input-field col s6">
+    <input id="nome" type="text" class="validate" autofocus required>
+    <label for="nome">Nome Completo*</label>
+</div>
+<div class="input-field col s6">
+    <input type="text" class="validate" id="RegraValida" name="RegraValida" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" placeholder="000.000.000-00" required>
+    <label for="CPF">CPF*</label>
+</div>
+<div class="input-field col s6">
+    <input id="RG" type="text" class="validate" required>
+    <label for="RG">RG*</label>
+</div>
+<div class="input-field col s6">
+    <input id="rguf" type="text" class="validate" required>
+    <label for="rbuf">Emissor RG/UF*</label>
+</div>
+<div class="input-field col s6">
+    <input id="Data" type="date" class="validate" required>
+    <label for="Data">Data de Nascimento*</label>
+</div>
+<div class="input-field col s6">
+    <select id="Estado_Civil">
+    <option disabled selected></option>
+    <option>Casado(a)</option>
+    <option>Divorciado(a)</option>
+    <option>Solteiro(a)</option>
+    <option>Viúvo(a)</option>
+    </select> 
+    <label for="Estado_Civil">Estado Civil*</label>
+</div>
+<div class="input-field col s6">
+    <select id="sexo">
+    <option disabled selected></option>
+    <option>Masculino</option>
+    <option>Feminino</option>
+    <option>Não desejo informar</option>
+    </select>
+    <label>Sexo*</label>      
+</div>
+<div class="input-field col s6">
+    <label for="email">E-mail*</label>
+    <input type="email" name="email" id="email" class="validate"placeholder="Exemplo@Exemplo.com" required>
+</div>         
+<div class="input-field col s6">
+    <label for="tel">Número de Celular*</label>
+    <input type="text" name="telefone" id="telefone" onkeypress="Mascara(this); return event.charCode >= 48 && event.charCode <= 57" class="validate" placeholder="(99)99999-9999" maxlength="14" required>
+</div>   
+</div>
+</fieldset>
+<br>
+<fieldset class="grupo">
+<legend id="titulo"><b>Dados Profissionais</b></legend>  
+<div class="row">          
+<div class="input-field col s6">
+    <label for="CRM">CRM*</label> 
+    <input type="Text" name="CRM" id="CRM" required>
+</div>
+<div class="input-field col s6">
+    <label for="Especialidade">Nome da Especialidade (Caso Possua)</label>
+    <input type="text" id="Especialidade" name="Especialidade">
+</div>
+<div class="input-field col s6">
+    <label for="RQE">R.Q.E (Caso Possua)</label>
+    <input type="text" id="RQE" name="RQE">
+</div>
+<div class="input-field col s6">
+    <label for="UTA">Unidadede Trabalho Atual</label>
+    <input type="text" id="UTA" name="UTA">
+</div>
+</div>
+</fieldset>
+<br>
+<fieldset class="grupo">
+<legend id="titulo"><b>Dados de Endereço</b></legend>
+<div class="row">
+<div class="input-field">
+    <input type="text" id="cep" maxlength="9" onkeypress="MascaraCep(this); return event.charCode >= 48 && event.charCode <= 57" placeholder="00000-000" autofocus required>
+    <label for="cep">CEP*</label>
+</div>
+<div class="input-field">
+    <input type="text" id="endereco" autofocus>
+    <label for="endereco">Endereço</label>
+</div>
+<div class="input-field">
+    <input type="text" id="Complemento">
+    <label for="Complemento">Complemento</label>
+</div>
+<div class="input-field">
+    <input type="text" id="bairro" autofocus>
+    <label for="Bairro">Bairro</label>
+</div>
+<div class="input-field">
+    <input type="text" id="cidade" autofocus>
+    <label for="cidade">Cidade</label>
+</div>
+<div class="input-field">
+    <input type="text" id="uf" autofocus>
+    <label for="uf">Estado</label>
+    <!--Scrip para o API do Cep-->
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script>
+        $("#cep").blur(function(){
+        var cep = this.value.replace(/[^0-9]/, "");
+        if(cep.length != 8){
+        return false;
+            }
+        var url = "https://viacep.com.br/ws/"+cep+"/json/";
+        $.getJSON(url, function(dadosRetorno){
+            try{
+            $("#endereco").val(dadosRetorno.logradouro);
+            $("#bairro").val(dadosRetorno.bairro);
+            $("#cidade").val(dadosRetorno.localidade);
+            $("#uf").val(dadosRetorno.uf);
+                }catch(ex){}
+                });
+                });
+    </script>
+</div>
+</div>   
+</fieldset>
+<br>      
+<fieldset class="grupo">
+<legend id="titulo"><b>Dados Bancários</b></legend>
+<p id="subtitulo">Nos próximos 4 itens abaixo, informe, por gentileza, os dados bancários da conta a qual você deseja receber os valores referentes aos pagamentos:</p>
+<div class="row">
+<div class="input-field col s6">
+    <select id="Banco">
+    <option disabled selected></option>
+    <option>Itaú</option>
+    <option>Bradesco</option>
+    <option>C6</option>
+    </select>
+    <label>Banco*</label>
+</div>
+<div class="input-field col s6">
+    <input id="agencia" type="text" class="validate" required>
+    <label for="agencia">Âgencia*</label>
+</div>
+<div class="input-field col s6">
+    <input id="CC" type="text" class="validate" required>
+    <label for="CC">C/C*</label>
+</div>
+<div class="input-field col s6">
+    <input id="Pix" type="text" class="validate">
+    <label for="pix">Pix (Caso possua)</label>
+</div>
+</div>
+</fieldset>
+<br>
+<fieldset class="grupo">
+<legend id="titulo"><b>Sua chegada à Health & Care</b></legend>
+<p id="subtitulo">Antes de finalizarmos o processo de captação dos dados, gostariamos de saber melhor como você nos conheceu🩺</p>
+<div class="campo">
+    <label>
+    <input class="with-gap" type="radio" name="devweb" value="Indicação"><span>Indicação de outro médico</span>
+    </label>
+    <label>
+    <input class="with-gap" type="radio" name="devweb" value="Facebook"><span>Facebook</span>
+    </label>
+    <label>
+    <input class="with-gap" type="radio" name="devweb" value="Google"><span>Google</span>
+    </label>
+    <label>
+    <input class="with-gap" type="radio" name="devweb" value="Instagram"><span>Instagram</span>
+    </label>
+    <label>
+    <input class="with-gap" type="radio" name="devweb" value="Um dos nossos colaboradores entrou em contato diretamente"><span>Um dos nossos colaboradores entrou em contato diretamente</span>
+    </label>
+</div>
+</fieldset>
+<br>
+<div class="col s10 center">
+    <button class="btn waves-effect waves-light btn-small" type="submit" value="Enviar">ENVIAR
+    <i class="material-icons right">send</i>
+    </button>
+</div>
+<br>
+</div>
+</body>
+</html>
